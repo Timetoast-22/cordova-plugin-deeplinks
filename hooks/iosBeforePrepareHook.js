@@ -21,9 +21,9 @@ function run(ctx) {
   var projectRoot = ctx.opts.projectRoot;
   var iosProjectFilePath = path.join(projectRoot, 'platforms', 'ios');
   var configXmlHelper = new ConfigXmlHelper(ctx);
-  var newProjectName = configXmlHelper.getProjectName();
+  var oldProjectName = configXmlHelper.getProjectName();
 
-  var oldProjectName = getOldProjectName(iosProjectFilePath);
+  var newProjectName = getNewProjectName(iosProjectFilePath);
 
   // if name has not changed - do nothing
   if (oldProjectName.length && oldProjectName === newProjectName) {
@@ -47,13 +47,13 @@ function run(ctx) {
 // region Private API
 
 /**
- * Get old name of the project.
+ * Get new name of the project.
  * Name is detected by the name of the .xcodeproj file.
  *
  * @param {String} projectDir absolute path to ios project directory
- * @return {String} old project name
+ * @return {String} new project name
  */
-function getOldProjectName(projectDir) {
+function getNewProjectName(projectDir) {
   var files = [];
   try {
     files = fs.readdirSync(projectDir);

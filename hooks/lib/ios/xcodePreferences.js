@@ -216,11 +216,7 @@ function projectRoot() {
 }
 
 function pathToEntitlementsFile() {
-  var configXmlHelper = new ConfigXmlHelper(context),
-    projectName = configXmlHelper.getProjectName(),
-    fileName = projectName + '.entitlements';
-
-  return path.join(projectName, 'Resources', fileName);
+  return path.join('App', 'Resources', 'App.entitlements');
 }
 
 // endregion

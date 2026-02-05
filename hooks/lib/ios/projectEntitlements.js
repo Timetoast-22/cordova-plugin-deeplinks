@@ -163,12 +163,7 @@ function getProjectRoot() {
  * @return {String} project name
  */
 function getProjectName() {
-  if (projectName === undefined) {
-    var configXmlHelper = new ConfigXmlHelper(context);
-    projectName = configXmlHelper.getProjectName();
-  }
-
-  return projectName;
+  return 'App';
 }
 
 // endregion
